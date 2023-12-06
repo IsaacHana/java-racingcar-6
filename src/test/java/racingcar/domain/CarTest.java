@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.utils.NumberGenerator;
 import racingcar.utils.RandomGenerator;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CarTest {
 
@@ -26,13 +24,7 @@ class CarTest {
     void moveForwardByRandom() {
         NumberGenerator numberGenerator = new RandomGenerator();
         Car car = Car.valueOf("isaac");
-
-        assertRandomNumberInRangeTest(
-                () -> {
-                    car.moveForwardByRandom(numberGenerator);
-                },
-                MOVING_FORWARD
-        );
+        car.moveForwardByRandom(MOVING_FORWARD);
     }
 
     @DisplayName("차 이름 가져오기 테스트")
@@ -47,16 +39,9 @@ class CarTest {
         NumberGenerator numberGenerator = new RandomGenerator();
         Car car = Car.valueOf("isaac");
 
-        assertRandomNumberInRangeTest(
-                () -> {
-                    car.moveForwardByRandom(numberGenerator);
-                    car.moveForwardByRandom(numberGenerator);
-                    car.moveForwardByRandom(numberGenerator);
-                },
-                MOVING_FORWARD,
-                MOVING_FORWARD,
-                STOP
-        );
+        car.moveForwardByRandom(MOVING_FORWARD);
+        car.moveForwardByRandom(MOVING_FORWARD);
+        car.moveForwardByRandom(STOP);
 
         assertThat(car.getDistance()).isEqualTo(2);
     }

@@ -22,8 +22,8 @@ public class Car {
         return new Car(name);
     }
 
-    public void moveForwardByRandom(NumberGenerator numberGenerator) {
-        if (numberGenerator.generate() >= STANDARD_NUMBER) {
+    public void moveForwardByRandom(int randomNumber) {
+        if (randomNumber >= STANDARD_NUMBER) {
             this.distance += INCREASED_DISTANCE;
         }
     }
