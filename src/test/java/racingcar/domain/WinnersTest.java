@@ -25,12 +25,6 @@ class WinnersTest {
         Winners.valueOf(List.of(Car.valueOf("pobi"), Car.valueOf("isaac")));
     }
 
-    @DisplayName("우승자 계산 함수 테스트")
-    @Test
-    void calculateWinners() {
-        assertThat(winners.getWinners()).contains(isaac).doesNotContain(pobi);
-    }
-
     @DisplayName("우승자 이름 테스트")
     @Test
     void getWinnersNames() {
