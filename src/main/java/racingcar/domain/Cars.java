@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.NumberGenerator;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -30,6 +32,10 @@ public class Cars {
 
     public List<Car> getCars() {
         return Collections.unmodifiableList(cars);
+    }
+
+    public void eachCarMoveForwardByRandom(NumberGenerator numberGenerator) {
+        cars.forEach(car -> car.moveForwardByRandom(numberGenerator.generate()));
     }
 
     public Car getCar(String searchCarName) {
