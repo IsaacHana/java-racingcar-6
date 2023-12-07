@@ -5,11 +5,14 @@ import racingcar.domain.RacingLaps;
 import racingcar.domain.Winners;
 import racingcar.ui.InputView;
 import racingcar.ui.OutputView;
+import racingcar.utils.NumberGenerator;
+import racingcar.utils.RandomGenerator;
 
 public class RacingGame {
     private Cars cars;
     private RacingLaps laps;
     private Winners winners;
+    private final NumberGenerator numberGenerator = new RandomGenerator();
 
     public void run() {
         collectInfo();
@@ -35,6 +38,7 @@ public class RacingGame {
 
         OutputView.printPrevRaceMessage();
         while (laps.getLaps() != initLaps++) {
+            cars.eachCarMoveForwardByRandom(numberGenerator);
             OutputView.printRaceStatus(cars);
         }
     }
