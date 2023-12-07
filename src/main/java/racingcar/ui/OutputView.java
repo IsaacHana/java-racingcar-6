@@ -8,13 +8,14 @@ public class OutputView {
     public static final String DISTANCE_MARK = "-";
 
     public static void printPrevRaceMessage() {
-        System.out.println("실행 결과");
+        System.out.printf("%n실행 결과%n");
     }
 
     public static void printRaceStatus(Cars cars) {
         for (Car car : cars.getCars()) {
             System.out.println(car.getName() + " : " + convertDistanceToMark(car.getDistance()));
         }
+        System.out.println();
     }
 
     private static String convertDistanceToMark(int distance) {
@@ -22,6 +23,6 @@ public class OutputView {
     }
 
     public static void printRaceWinners(Winners winners) {
-        System.out.print("최종 우승자 : " + String.join(",", winners.getWinnersNames()));
+        System.out.printf("최종 우승자 : " + String.join(",", winners.getWinnersNames()));
     }
 }
